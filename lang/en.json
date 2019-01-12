@@ -1,0 +1,15 @@
+{
+    "circa": "c. ",
+    "single": "%1",
+    "before": "before %1",
+    "after": "after %1",
+    "early": "early %1",
+    "mid": "mid %1",
+    "late": "late %1",
+    "range": "between %1 and %2",
+    "formatDay": "LL",
+    "formatMonth": "MMMM YYYY",
+    "formatYear": "YYYY",
+    "formatCentury": "%dth century",
+    "formatDecade": "the %ds"
+}
