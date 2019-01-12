@@ -23,6 +23,12 @@ describe('parse', () => {
     assert.equal(parse('mid C17'), 'Mitte 17. Jahrhundert')
   })
 
+  it ('circa', () => {
+    assert.equal(parse('~c15'), 'ca. 15. Jahrhundert')
+    assert.equal(parse('~2010-10'), 'ca. Oktober 2010')
+    assert.equal(parse('1910..~2010-10'), 'zwischen 1910 und ca. Oktober 2010')
+  })
+
   it ('other', () => {
     assert.equal(parse('foobar'), 'foobar')
     assert.equal(parse('foobar..2000-01'), 'zwischen foobar und Januar 2000')

@@ -1,4 +1,5 @@
 module.exports = {
+  circa: 'ca. ',
   single: '%1',
   before: 'vor %1',
   after: 'nach %1',

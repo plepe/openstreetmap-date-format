@@ -35,6 +35,11 @@ describe('formatDate', () => {
     assert.equal(result, '15. Jahrhundert')
   })
 
+  it ('circa', () => {
+    assert.equal(formatDate('~c15'), 'ca. 15. Jahrhundert')
+    assert.equal(formatDate('~2010-10'), 'ca. Oktober 2010')
+  })
+
   it ('other', () => {
     let result = formatDate('foobar')
 
