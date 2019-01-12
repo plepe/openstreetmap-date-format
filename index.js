@@ -1,24 +1,36 @@
 const templates = {
-  before: 'vor %s'
+  single: '%1',
+  before: 'vor %1',
+  range: 'zwischen %1 und %2'
 }
 
 function parse (date) {
+  let dates = [ date ]
   let modi
+  let template = templates.single
   let m =date.match(/(before|early|late|mid|after) (.*)$/)
   if (m) {
     modi = m[1]
-    date = m[2]
+    dates = [ m[2] ]
   }
 
-  let formattedDate = date
+  m = date.match(/(.*)\.\.(.*)$/)
+  if (m) {
+    modi = 'range'
+    dates = [ m[1], m[2] ]
+  }
+
+  let formattedDates = dates
 
   if (modi) {
-    let template = templates[modi]
-    formattedDate = template.replace('%s', formattedDate)
+    template = templates[modi]
   }
 
-  return formattedDate
+  formattedDates.forEach((v, i) => template = template.replace('%' + (i + 1), v))
+
+  return template
 }
 
 console.log(parse('1954'))
 console.log(parse('before 1954'))
+console.log(parse('1954..1966'))
