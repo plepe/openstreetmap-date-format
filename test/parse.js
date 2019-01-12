@@ -1,8 +1,43 @@
 const assert = require('assert')
 
-const parse = require('../src/parse')
+const parse = require('../src/parse')('de')
 
 describe('parse', () => {
+  it ('day', () => {
+    let result = parse('1901-02-03')
+
+    assert.equal(result, '3. Februar 1901')
+  })
+
+  it ('month', () => {
+    let result = parse('1901-02')
+
+    assert.equal(result, 'Februar 1901')
+  })
+
+  it ('year', () => {
+    let result = parse('1954')
+
+    assert.equal(result, '1954')
+  })
+
+  it ('decade', () => {
+    let result = parse('1950s')
+
+    assert.equal(result, '1950er Jahre')
+  })
+
+  it ('century', () => {
+    let result = parse('c15')
+
+    assert.equal(result, '15. Jahrhundert')
+  })
+
+  it ('circa', () => {
+    assert.equal(parse('~c15'), 'ca. 15. Jahrhundert')
+    assert.equal(parse('~2010-10'), 'ca. Oktober 2010')
+  })
+
   it ('pure', () => {
     assert.equal(parse('1901-02-03'), '3. Februar 1901')
     assert.equal(parse('1901-02'), 'Februar 1901')

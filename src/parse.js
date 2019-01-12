@@ -1,7 +1,8 @@
-const templates = require('./templates')
 const formatDate = require('./formatDate')
 
-module.exports = function parse (date) {
+let templates
+
+function parse (date) {
   let dates = [ date ]
   let modi
   let template = templates.single
@@ -17,7 +18,7 @@ module.exports = function parse (date) {
     dates = [ m[1], m[2] ]
   }
 
-  let formattedDates = dates.map(formatDate)
+  let formattedDates = dates.map(d => formatDate(d, templates))
 
   if (modi) {
     template = templates[modi]
@@ -30,4 +31,9 @@ module.exports = function parse (date) {
   )
 
   return template
+}
+
+module.exports = function (locale) {
+  templates = require('../locale/' + locale)
+  return parse
 }

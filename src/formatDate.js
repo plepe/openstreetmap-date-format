@@ -1,8 +1,6 @@
 const moment = require('moment')
 
-const templates = require('./templates')
-
-module.exports = function formatDate (date) {
+module.exports = function formatDate (date, templates) {
   let prefix = ''
   if (date.match(/^~/)) {
     prefix = templates.circa
