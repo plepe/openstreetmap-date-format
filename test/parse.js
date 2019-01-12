@@ -17,4 +17,10 @@ describe('parse', () => {
     assert.equal(parse('C19..1901-02'), 'zwischen 19. Jahrhundert und Februar 1901')
     assert.equal(parse('1901-02..2018-12-24'), 'zwischen Februar 1901 und 24. Dezember 2018')
   })
+
+  it ('early/mid/late', () => {
+    assert.equal(parse('early 1901-02'), 'Anfang Februar 1901')
+    assert.equal(parse('mid C17'), 'Mitte 17. Jahrhundert')
+  })
+
 })
