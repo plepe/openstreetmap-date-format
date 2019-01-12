@@ -1,5 +1,12 @@
 {
   "dependencies": {
     "moment": "^2.23.0"
-  }
+  },
+  "name": "openstreetmap-date-format",
+  "version": "0.0.0",
+  "description": "Format openstreetmap dates (like start_date) in a localized string",
+  "main": "index.js",
+  "repository": "https://github.com/plepe/openstreetmap-date-format",
+  "author": "Stephan Bösch-Plepelits <skunk@xover.mud.at>",
+  "license": "GPL-3.0"
 }
