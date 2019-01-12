@@ -1,7 +1,12 @@
+const moment = require('moment')
 const templates = {
   single: '%1',
   before: 'vor %1',
   range: 'zwischen %1 und %2'
+}
+
+function formatDate(date) {
+  return moment(date).format()
 }
 
 function parse (date) {
@@ -20,7 +25,7 @@ function parse (date) {
     dates = [ m[1], m[2] ]
   }
 
-  let formattedDates = dates
+  let formattedDates = dates.map(formatDate)
 
   if (modi) {
     template = templates[modi]
@@ -34,3 +39,4 @@ function parse (date) {
 console.log(parse('1954'))
 console.log(parse('before 1954'))
 console.log(parse('1954..1966'))
+console.log(parse('1954-08-13..1966-01-01'))
