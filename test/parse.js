@@ -23,4 +23,8 @@ describe('parse', () => {
     assert.equal(parse('mid C17'), 'Mitte 17. Jahrhundert')
   })
 
+  it ('other', () => {
+    assert.equal(parse('foobar'), 'foobar')
+    assert.equal(parse('foobar..2000-01'), 'zwischen foobar und Januar 2000')
+  })
 })

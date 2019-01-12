@@ -34,4 +34,10 @@ describe('formatDate', () => {
 
     assert.equal(result, '15. Jahrhundert')
   })
+
+  it ('other', () => {
+    let result = formatDate('foobar')
+
+    assert.equal(result, 'foobar')
+  })
 })

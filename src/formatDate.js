@@ -26,4 +26,6 @@ module.exports = function formatDate (date) {
   if (m) {
     return templates.formatDecade.replace('%d', m[1])
   }
+
+  return date
 }
