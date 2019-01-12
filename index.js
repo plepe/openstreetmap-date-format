@@ -10,9 +10,9 @@ const templates = {
   formatDecade: '%der Jahre'
 }
 
-function formatDate(date) {
+function formatDate (date) {
   let format
-  let m = date.match(/^([0-9]{4})(\-[0-9]{2})?(\-[0-9]{2})?$/)
+  let m = date.match(/^([0-9]{4})(-[0-9]{2})?(-[0-9]{2})?$/)
   if (m) {
     if (m[3]) {
       format = templates.formatDay
@@ -40,7 +40,7 @@ function parse (date) {
   let dates = [ date ]
   let modi
   let template = templates.single
-  let m =date.match(/(before|early|late|mid|after) (.*)$/)
+  let m = date.match(/(before|early|late|mid|after) (.*)$/)
   if (m) {
     modi = m[1]
     dates = [ m[2] ]
@@ -58,7 +58,11 @@ function parse (date) {
     template = templates[modi]
   }
 
-  formattedDates.forEach((v, i) => template = template.replace('%' + (i + 1), v))
+  formattedDates.forEach(
+    (v, i) => {
+      template = template.replace('%' + (i + 1), v)
+    }
+  )
 
   return template
 }

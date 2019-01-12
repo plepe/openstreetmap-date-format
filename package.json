@@ -8,5 +8,11 @@
   "main": "index.js",
   "repository": "https://github.com/plepe/openstreetmap-date-format",
   "author": "Stephan Bösch-Plepelits <skunk@xover.mud.at>",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "standard": "^12.0.1"
+  },
+  "scripts": {
+    "lint": "standard --fix index.js"
+  }
 }
