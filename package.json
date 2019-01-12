@@ -14,7 +14,7 @@
     "standard": "^12.0.1"
   },
   "scripts": {
-    "lint": "standard --fix index.js",
+    "lint": "standard --fix index.js src/*.js test/*.js",
     "test": "mocha --bail"
   }
 }
