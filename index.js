@@ -1,10 +1,1 @@
-const parse = require('./src/parse')
-
-console.log(parse('1954'))
-console.log(parse('before 1954'))
-console.log(parse('before 1954-04'))
-console.log(parse('1954..1966'))
-console.log(parse('1954-08-13..1966-01-01'))
-console.log(parse('C16'))
-console.log(parse('before C16'))
-console.log(parse('C19..1920s'))
+module.exports = require('./src/parse')
