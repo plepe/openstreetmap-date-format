@@ -7,7 +7,7 @@ function parse (date) {
     locale = global.locale
   }
 
-  const templates = locale.osmDateParserTemplates
+  const templates = locale.osmDateFormatTemplates
 
   let dates = [ date ]
   let modi

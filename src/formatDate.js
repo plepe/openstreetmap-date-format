@@ -1,5 +1,5 @@
 module.exports = function formatDate (date, locale) {
-  const templates = locale.osmDateParserTemplates
+  const templates = locale.osmDateFormatTemplates
 
   let prefix = ''
   if (date.match(/^~/)) {
