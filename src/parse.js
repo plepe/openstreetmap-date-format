@@ -4,7 +4,7 @@ let locale = {}
 
 function parse (date) {
   if (typeof locale.id === 'undefined') {
-    locale = global.locale
+    parse.locale()
   }
 
   const templates = locale.osmDateFormatTemplates
@@ -38,7 +38,11 @@ parse.locale = function (_locale) {
     require('../locale/node.js')(_locale, locale)
   } else {
     if (typeof locale.id === 'undefined') {
-      locale = global.locale
+      if ('locale' in global) {
+        locale = global.locale
+      } else {
+        parse.locale('en')
+      }
     }
 
     return locale.id

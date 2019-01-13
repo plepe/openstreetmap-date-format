@@ -18,7 +18,7 @@
     "build-test": "npm run build-locale && browserify --debug test/en.js -o dist/test-en.js && browserify --debug test/de.js -o dist/test-de.js",
     "build-locale": "for i in `ls locale/` ; do browserify locale/$i -o dist/locale-$i ; done",
     "lint": "standard --fix index.js src/*.js locale/*.js templates/*.js",
-    "test": "mocha --bail test/en.js test/de.js"
+    "test": "mocha --bail test/default.js test/en.js test/de.js"
   },
   "browser": {
     "./locale/node.js": "./locale/browserify.js"
