@@ -1,5 +1,7 @@
 module.exports = {
-    circa: "ca. ",
+    circa: function (value) {
+      return "ca. " + value
+    },
     single: function (value) {
       return value
     },
