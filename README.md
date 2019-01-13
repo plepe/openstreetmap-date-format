@@ -4,8 +4,11 @@ npm install --save openstreetmap-date-format
 ```
 
 ## API
-### osmDateFormat(dateString) ###
+### osmDateFormat(dateString, options) ###
 Convert a date string (as found in a osm tage like 'start_date') to a localized string.
+
+Available options:
+* none
 
 Example:
 ```js

@@ -1,41 +1,41 @@
 module.exports = {
-  circa: function (value) {
+  circa: function (options, value) {
     return 'ca. ' + value
   },
-  single: function (value) {
+  single: function (options, value) {
     return value
   },
-  before: function (value) {
+  before: function (options, value) {
     return 'vor ' + value
   },
-  after: function (value) {
+  after: function (options, value) {
     return 'nach ' + value
   },
-  early: function (value) {
+  early: function (options, value) {
     return 'Anfang ' + value
   },
-  mid: function (value) {
+  mid: function (options, value) {
     return 'Mitte ' + value
   },
-  late: function (value) {
+  late: function (options, value) {
     return 'Ende ' + value
   },
-  range: function (value1, value2) {
+  range: function (options, value1, value2) {
     return 'zwischen ' + value1 + ' und ' + value2
   },
-  formatDay: function (value) {
+  formatDay: function (options, value) {
     return this.moment(value).format('LL')
   },
-  formatMonth: function (value) {
+  formatMonth: function (options, value) {
     return this.moment(value).format('MMMM YYYY')
   },
-  formatYear: function (value) {
+  formatYear: function (options, value) {
     return value
   },
-  formatDecade: function (value) {
+  formatDecade: function (options, value) {
     return value + 'er Jahre'
   },
-  formatCentury: function (value) {
+  formatCentury: function (options, value) {
     return value + '. Jahrhundert'
   }
 }

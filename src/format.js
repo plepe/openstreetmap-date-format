@@ -2,7 +2,7 @@ const formatDate = require('./formatDate')
 
 let locale = {}
 
-function format (date) {
+function format (date, options={}) {
   if (typeof locale.id === 'undefined') {
     format.locale()
   }
@@ -24,13 +24,13 @@ function format (date) {
     dates = [ m[1], m[2] ]
   }
 
-  let formattedDates = dates.map(d => formatDate(d, locale))
+  let formattedDates = dates.map(d => formatDate(d, options, locale))
 
   if (modi) {
     template = templates[modi]
   }
 
-  return template.apply(locale, formattedDates)
+  return template.apply(locale, [ options ].concat(formattedDates))
 }
 
 format.locale = function (_locale) {
