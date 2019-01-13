@@ -1,3 +1,8 @@
+## Installation
+```sh
+npm install --save openstreetmap-date-format
+```
+
 ## API
 ### osmDateFormat(dateString) ###
 Convert a date string (as found in a osm tage like 'start_date') to a localized string.
@@ -64,3 +69,13 @@ Additionally include locale file in your app:
   </body>
 </html>
 ```
+
+## Further links
+### Code
+* Source code: https://github.com/plepe/openstreetmap-date-format
+
+### Documentation
+* https://wiki.openstreetmap.org/wiki/Key:start_date
+
+### See also
+* https://github.com/plepe/openstreetmap-date-parser (will return a possible date range from a date string)
