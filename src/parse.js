@@ -42,6 +42,9 @@ parse.locale = function (_locale) {
         locale = global.locale
       } else {
         parse.locale('en')
+        if (!locale.id ) {
+          console.error("Can't load default locale - embed locale as additional script")
+        }
       }
     }
 
