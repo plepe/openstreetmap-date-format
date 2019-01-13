@@ -1,6 +1,7 @@
 const assert = require('assert')
 
-const parse = require('../src/parse')('de')
+const parse = require('../src/parse')
+parse.locale('de')
 
 describe('parse', () => {
   it ('day', () => {

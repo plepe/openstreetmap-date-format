@@ -1,8 +1,14 @@
 const formatDate = require('./formatDate')
 
-let templates
+let locale = {}
 
 function parse (date) {
+  if (typeof locale.id === 'undefined') {
+    locale = global.locale
+  }
+
+  const templates = locale.osmDateParserTemplates
+
   let dates = [ date ]
   let modi
   let template = templates.single
@@ -18,7 +24,7 @@ function parse (date) {
     dates = [ m[1], m[2] ]
   }
 
-  let formattedDates = dates.map(d => formatDate(d, templates))
+  let formattedDates = dates.map(d => formatDate(d, locale))
 
   if (modi) {
     template = templates[modi]
@@ -33,7 +39,8 @@ function parse (date) {
   return template
 }
 
-module.exports = function (locale) {
-  templates = require('../locale/' + locale)
-  return parse
+parse.locale = function (_locale) {
+  require('../locale/node.js')(_locale, locale)
 }
+
+module.exports = parse

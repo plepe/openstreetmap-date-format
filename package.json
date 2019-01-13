@@ -15,8 +15,12 @@
     "standard": "^12.0.1"
   },
   "scripts": {
-    "build-test": "browserify --debug test/*.js -o dist/test.js",
+    "build-test": "npm run build-locale && browserify --debug test/*.js -o dist/test.js",
+    "build-locale": "browserify locale/de.js -o dist/locale-de.js ; browserify locale/en.js -o dist/locale-en.js",
     "lint": "standard --fix index.js src/*.js test/*.js",
     "test": "mocha --bail"
+  },
+  "browser": {
+    "./locale/node.js": "./locale/browserify.js"
   }
 }

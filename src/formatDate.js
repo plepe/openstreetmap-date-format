@@ -1,6 +1,6 @@
-const moment = require('moment')
+module.exports = function formatDate (date, locale) {
+  const templates = locale.osmDateParserTemplates
 
-module.exports = function formatDate (date, templates) {
   let prefix = ''
   if (date.match(/^~/)) {
     prefix = templates.circa
@@ -18,7 +18,7 @@ module.exports = function formatDate (date, templates) {
       format = templates.formatYear
     }
 
-    return prefix + moment(date).format(format)
+    return prefix + locale.moment(date).format(format)
   }
 
   m = date.match(/^C([0-9]+)$/i)

@@ -1,2 +1,7 @@
-require('moment/locale/de');
-module.exports = require('../lang/de')
+global.locale = {
+  id: 'de',
+  moment: require('moment'),
+  osmDateParserTemplates: require('../lang/de')
+}
+
+require('moment/locale/de')
