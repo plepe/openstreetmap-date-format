@@ -2,9 +2,9 @@ const formatDate = require('./formatDate')
 
 let locale = {}
 
-function parse (date) {
+function format (date) {
   if (typeof locale.id === 'undefined') {
-    parse.locale()
+    format.locale()
   }
 
   const templates = locale.osmDateFormatTemplates
@@ -33,7 +33,7 @@ function parse (date) {
   return template.apply(locale, formattedDates)
 }
 
-parse.locale = function (_locale) {
+format.locale = function (_locale) {
   if (_locale) {
     require('../locale/node.js')(_locale, locale)
   } else {
@@ -41,7 +41,7 @@ parse.locale = function (_locale) {
       if ('locale' in global) {
         locale = global.locale
       } else {
-        parse.locale('en')
+        format.locale('en')
         if (!locale.id) {
           console.error("Can't load default locale - embed locale as additional script")
         }
@@ -52,4 +52,4 @@ parse.locale = function (_locale) {
   }
 }
 
-module.exports = parse
+module.exports = format
