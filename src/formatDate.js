@@ -18,17 +18,17 @@ module.exports = function formatDate (date, locale) {
       format = templates.formatYear
     }
 
-    return prefix + locale.moment(date).format(format)
+    return prefix + format.call(locale, date)
   }
 
   m = date.match(/^C([0-9]+)$/i)
   if (m) {
-    return prefix + templates.formatCentury.replace('%d', parseInt(m[1]))
+    return prefix + templates.formatCentury.call(locale, m[1])
   }
 
   m = date.match(/^([0-9]{4})s$/i)
   if (m) {
-    return prefix + templates.formatDecade.replace('%d', m[1])
+    return prefix + templates.formatDecade.call(locale, m[1])
   }
 
   return date

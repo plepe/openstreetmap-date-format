@@ -30,13 +30,7 @@ function parse (date) {
     template = templates[modi]
   }
 
-  formattedDates.forEach(
-    (v, i) => {
-      template = template.replace('%' + (i + 1), v)
-    }
-  )
-
-  return template
+  return template.apply(locale, formattedDates)
 }
 
 parse.locale = function (_locale) {
