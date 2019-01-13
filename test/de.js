@@ -1,10 +1,10 @@
 const assert = require('assert')
 
 const parse = require('../src/parse')
-parse.locale('de')
 
-describe('parse', () => {
+describe('Locale "de"', () => {
   it ('locale', () => {
+    parse.locale('de')
     assert.equal(parse.locale(), 'de')
   })
 
