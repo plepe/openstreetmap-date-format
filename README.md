@@ -8,7 +8,7 @@ npm install --save openstreetmap-date-format
 Convert a date string (as found in a osm tage like 'start_date') to a localized string.
 
 Available options:
-* none
+* format: choose an alternative format. Currently available: 'long' (default), 'short'
 
 Example:
 ```js
@@ -16,6 +16,10 @@ console.log(osmDateFormat('C19'))
 // '19th century'
 console.log(osmDateFormat('1980..~1990'))
 // 'between 1980 and c. 1990'
+console.log(osmDateFormat('1901-02-03'))
+// 'February 3, 1901'
+console.log(osmDateFormat('1901-02-03', { format: 'short' }))
+// 'Feb 3, 1901'
 ```
 
 ### osmDateFormat.locale(localeId) ###

@@ -21,21 +21,31 @@ module.exports = {
     return 'Ende ' + value
   },
   range: function (options, value1, value2) {
+    if (options.format === 'short')
+      return 'zw. ' + value1 + ' und ' + value2
     return 'zwischen ' + value1 + ' und ' + value2
   },
   formatDay: function (options, value) {
+    if (options.format === 'short')
+      return this.moment(value).format('ll')
     return this.moment(value).format('LL')
   },
   formatMonth: function (options, value) {
+    if (options.format === 'short')
+      return this.moment(value).format('MMM YYYY')
     return this.moment(value).format('MMMM YYYY')
   },
   formatYear: function (options, value) {
     return value
   },
   formatDecade: function (options, value) {
+    if (options.format === 'short')
+      return value + 'er'
     return value + 'er Jahre'
   },
   formatCentury: function (options, value) {
+    if (options.format === 'short')
+      return value + '. Jh.'
     return value + '. Jahrhundert'
   }
 }

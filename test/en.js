@@ -10,10 +10,12 @@ describe('Locale "en"', () => {
 
   it('day', () => {
     assert.strictEqual(format('1901-02-03'), 'February 3, 1901')
+    assert.strictEqual(format('1901-02-03', { format: 'short' }), 'Feb 3, 1901')
   })
 
   it('month', () => {
     assert.strictEqual(format('1901-02'), 'February 1901')
+    assert.strictEqual(format('1901-02', { format: 'short' }), 'Feb 1901')
   })
 
   it('year', () => {
@@ -26,11 +28,13 @@ describe('Locale "en"', () => {
 
   it('century', () => {
     assert.strictEqual(format('c15'), '15th century')
+    assert.strictEqual(format('c15', { format: 'short' }), '15c.')
   })
 
   it('circa', () => {
     assert.strictEqual(format('~c15'), 'c. 15th century')
     assert.strictEqual(format('~2010-10'), 'c. October 2010')
+    assert.strictEqual(format('~2010-10', { format: 'short' }), 'c. Oct 2010')
   })
 
   it('pure', () => {
@@ -46,6 +50,7 @@ describe('Locale "en"', () => {
   it('range', () => {
     assert.strictEqual(format('C19..1901-02'), 'between 19th century and February 1901')
     assert.strictEqual(format('1901-02..2018-12-24'), 'between February 1901 and December 24, 2018')
+    assert.strictEqual(format('1901-02..2018-12-24', { format: 'short' }), 'b/w Feb 1901 and Dec 24, 2018')
   })
 
   it('early/mid/late', () => {
