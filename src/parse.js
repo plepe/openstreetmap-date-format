@@ -40,7 +40,15 @@ function parse (date) {
 }
 
 parse.locale = function (_locale) {
-  require('../locale/node.js')(_locale, locale)
+  if (_locale) {
+    require('../locale/node.js')(_locale, locale)
+  } else {
+    if (typeof locale.id === 'undefined') {
+      locale = global.locale
+    }
+
+    return locale.id
+  }
 }
 
 module.exports = parse

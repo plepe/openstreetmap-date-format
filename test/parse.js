@@ -4,6 +4,10 @@ const parse = require('../src/parse')
 parse.locale('de')
 
 describe('parse', () => {
+  it ('locale', () => {
+    assert.equal(parse.locale(), 'de')
+  })
+
   it ('day', () => {
     let result = parse('1901-02-03')
 
