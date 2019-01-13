@@ -4,7 +4,6 @@ module.exports = function formatDate (date, locale) {
     return value
   }
 
-  let prefix = ''
   if (date.match(/^~/)) {
     modifier = templates.circa
     date = date.substr(1)
