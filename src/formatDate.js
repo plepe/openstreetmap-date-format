@@ -1,11 +1,9 @@
 module.exports = function formatDate (date, options, locale) {
   const templates = locale.osmDateFormatTemplates
-  let modifier = function (options, value) {
-    return value
-  }
+  let modifier = {}
 
   if (date.match(/^~/)) {
-    modifier = templates.circa
+    modifier.circa = true
     date = date.substr(1)
   }
 
@@ -20,18 +18,18 @@ module.exports = function formatDate (date, options, locale) {
       format = templates.formatYear
     }
 
-    return modifier.call(locale, options, format.call(locale, options, date))
+    return templates.modify.call(locale, options, format.call(locale, options, date), modifier)
   }
 
   m = date.match(/^C([0-9]+)$/i)
   if (m) {
-    return modifier.call(locale, options, templates.formatCentury.call(locale, options, m[1]))
+    return templates.modify.call(locale, options, templates.formatCentury.call(locale, options, m[1]), modifier)
   }
 
   m = date.match(/^([0-9]{4})s$/i)
   if (m) {
-    return modifier.call(locale, options, templates.formatDecade.call(locale, options, m[1]))
+    return templates.modify.call(locale, options, templates.formatDecade.call(locale, options, m[1]), modifier)
   }
 
-  return modifier.call(locale, options, date)
+  return templates.modify.call(locale, options, date, modifier)
 }

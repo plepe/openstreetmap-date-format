@@ -1,6 +1,10 @@
 module.exports = {
-  circa: function (options, value) {
-    return 'ca. ' + value
+  modify: function (options, value, modifier) {
+    if (modifier.circa) {
+      value = 'ca. ' + value
+    }
+
+    return value
   },
   single: function (options, value) {
     return value
