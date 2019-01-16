@@ -4,6 +4,10 @@ module.exports = {
       value = 'ca. ' + value
     }
 
+    if (modifier.bc) {
+      value += ' v.Chr.'
+    }
+
     return value
   },
   single: function (options, value) {

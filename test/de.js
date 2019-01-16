@@ -66,6 +66,14 @@ describe('Locale "de"', () => {
     assert.strictEqual(format('1910..~2010-10'), 'zwischen 1910 und ca. Oktober 2010')
   })
 
+  it('BC', () => {
+    assert.strictEqual(format('~1000 BC'), 'ca. 1000 v.Chr.')
+    assert.strictEqual(format('C1 BC'), '1. Jahrhundert v.Chr.')
+    assert.strictEqual(format('C2 BCE', { format: 'short' }), '2. Jh. v.Chr.')
+    assert.strictEqual(format('~1500 BC..~1000 BC'), 'zwischen ca. 1500 v.Chr. und ca. 1000 v.Chr.')
+    assert.strictEqual(format('~630BC'), 'ca. 630 v.Chr.')
+  })
+
   it('other', () => {
     assert.strictEqual(format('foobar'), 'foobar')
     assert.strictEqual(format('foobar..2000-01'), 'zwischen foobar und Januar 2000')

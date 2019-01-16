@@ -6,6 +6,10 @@ module.exports = {
       value = 'c. ' + value
     }
 
+    if (modifier.bc) {
+      value += ' BC'
+    }
+
     return value
   },
   single: function (options, value) {

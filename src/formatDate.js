@@ -7,6 +7,12 @@ module.exports = function formatDate (date, options, locale) {
     date = date.substr(1)
   }
 
+  let mBc = date.match(/^([^ ]*)\s*BCE?$/)
+  if (mBc) {
+    modifier.bc = true
+    date = mBc[1]
+  }
+
   let format
   let m = date.match(/^([0-9]{4})(-[0-9]{2})?(-[0-9]{2})?$/)
   if (m) {
