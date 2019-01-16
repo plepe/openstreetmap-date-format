@@ -27,7 +27,13 @@ describe('Locale "en"', () => {
   })
 
   it('century', () => {
-    assert.strictEqual(format('c15'), '15th century')
+    assert.strictEqual(format('c1'), '1st century')
+    assert.strictEqual(format('c2'), '2nd century')
+    assert.strictEqual(format('c3'), '3rd century')
+    assert.strictEqual(format('c4'), '4th century')
+    assert.strictEqual(format('c11'), '11th century')
+    assert.strictEqual(format('c12'), '12th century')
+    assert.strictEqual(format('c21'), '21st century')
     assert.strictEqual(format('c15', { format: 'short' }), '15c.')
   })
 

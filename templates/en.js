@@ -1,3 +1,5 @@
+const ordinal = require('ordinal')
+
 module.exports = {
   modify: function (options, value, modifier) {
     if (modifier.circa) {
@@ -48,6 +50,6 @@ module.exports = {
   formatCentury: function (options, value) {
     if (options.format === 'short')
       return value + 'c.'
-    return value + 'th century'
+    return ordinal(parseInt(value)) + ' century'
   }
 }
