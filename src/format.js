@@ -23,6 +23,10 @@ function format (date, options={}) {
   if (m) {
     modi = 'range'
     dates = [ parseDate(m[1]), parseDate(m[2]) ]
+
+    if (dates[1].bc) {
+      dates[0].bc = true
+    }
   }
 
   if (!dates) {

@@ -71,6 +71,7 @@ describe('Locale "de"', () => {
     assert.strictEqual(format('C1 BC'), '1. Jahrhundert v.Chr.')
     assert.strictEqual(format('C2 BCE', { format: 'short' }), '2. Jh. v.Chr.')
     assert.strictEqual(format('~1500 BC..~1000 BC'), 'zwischen ca. 1500 v.Chr. und ca. 1000 v.Chr.')
+    assert.strictEqual(format('1500..1000 BC'), 'zwischen 1500 v.Chr. und 1000 v.Chr.')
     assert.strictEqual(format('~630BC'), 'ca. 630 v.Chr.')
   })
 

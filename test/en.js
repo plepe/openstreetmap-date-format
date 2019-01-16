@@ -75,6 +75,7 @@ describe('Locale "en"', () => {
     assert.strictEqual(format('C1 BC'), '1st century BC')
     assert.strictEqual(format('C2 BCE'), '2nd century BC')
     assert.strictEqual(format('~1500 BC..~1000 BC'), 'between c. 1500 BC and c. 1000 BC')
+    assert.strictEqual(format('1500..1000 BC'), 'between 1500 BC and 1000 BC')
     assert.strictEqual(format('~630BC'), 'c. 630 BC')
   })
 
