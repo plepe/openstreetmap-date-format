@@ -1,3 +1,4 @@
+const parseDate = require('./parseDate')
 const formatDate = require('./formatDate')
 
 let locale = {}
@@ -9,19 +10,23 @@ function format (date, options={}) {
 
   const templates = locale.osmDateFormatTemplates
 
-  let dates = [ date ]
+  let dates
   let modi
   let template = templates.single
   let m = date.match(/(before|early|late|mid|after) (.*)$/)
   if (m) {
     modi = m[1]
-    dates = [ m[2] ]
+    dates = [ parseDate(m[2]) ]
   }
 
   m = date.match(/(.*)\.\.(.*)$/)
   if (m) {
     modi = 'range'
-    dates = [ m[1], m[2] ]
+    dates = [ parseDate(m[1]), parseDate(m[2]) ]
+  }
+
+  if (!dates) {
+    dates = [ parseDate(date) ]
   }
 
   let formattedDates = dates.map(d => formatDate(d, options, locale))
