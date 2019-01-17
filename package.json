@@ -16,7 +16,7 @@
     "standard": "^12.0.1"
   },
   "scripts": {
-    "build-test": "npm run build-locale && browserify --debug test/0default.js -o dist/test-default.js && browserify --debug test/en.js -o dist/test-en.js && browserify --debug test/de.js -o dist/test-de.js",
+    "build-test": "npm run build-locale && browserify --debug test/0default.js -o dist/test-default.js && browserify --debug test/en.js -o dist/test-en.js && browserify --debug test/de.js -o dist/test-de.js&& browserify --debug test/fr.js -o dist/test-fr.js ",
     "build-locale": "for i in `ls locale/` ; do browserify locale/$i -o dist/locale-$i ; done",
     "lint": "standard --fix index.js src/*.js locale/*.js templates/*.js test/*.js",
     "test": "mocha --bail"

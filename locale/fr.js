@@ -3,3 +3,5 @@ global.locale = {
   moment: require('moment'),
   osmDateFormatTemplates: require('../templates/fr')
 }
+
+require('moment/locale/fr')
