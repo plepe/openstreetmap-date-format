@@ -3,7 +3,7 @@ const formatDate = require('./formatDate')
 
 let locale = {}
 
-function format (date, options={}) {
+function format (date, options = {}) {
   if (typeof locale.id === 'undefined') {
     format.locale()
   }

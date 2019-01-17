@@ -5,22 +5,22 @@ module.exports = function formatDate (date, options, locale) {
   switch (date.type) {
     case 'day':
       result = templates.formatDay.call(locale, options, date.value)
-      break;
+      break
     case 'month':
       result = templates.formatMonth.call(locale, options, date.value)
-      break;
+      break
     case 'year':
       result = templates.formatYear.call(locale, options, date.value)
-      break;
+      break
     case 'decade':
       result = templates.formatDecade.call(locale, options, date.value)
-      break;
+      break
     case 'century':
       result = templates.formatCentury.call(locale, options, date.value)
-      break;
+      break
     case 'unknown':
       result = date.value
-      break;
+      break
   }
 
   return templates.modify.call(locale, options, result, date)

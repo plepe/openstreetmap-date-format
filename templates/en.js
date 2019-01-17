@@ -31,18 +31,15 @@ module.exports = {
     return 'late ' + value
   },
   range: function (options, value1, value2) {
-    if (options.format === 'short')
-      return 'b/w ' + value1 + ' and ' + value2
+    if (options.format === 'short') { return 'b/w ' + value1 + ' and ' + value2 }
     return 'between ' + value1 + ' and ' + value2
   },
   formatDay: function (options, value) {
-    if (options.format === 'short')
-      return this.moment(value).format('ll')
+    if (options.format === 'short') { return this.moment(value).format('ll') }
     return this.moment(value).format('LL')
   },
   formatMonth: function (options, value) {
-    if (options.format === 'short')
-      return this.moment(value).format('MMM YYYY')
+    if (options.format === 'short') { return this.moment(value).format('MMM YYYY') }
     return this.moment(value).format('MMMM YYYY')
   },
   formatYear: function (options, value) {
@@ -52,8 +49,7 @@ module.exports = {
     return 'the ' + value + 's'
   },
   formatCentury: function (options, value) {
-    if (options.format === 'short')
-      return value + 'c.'
+    if (options.format === 'short') { return value + 'c.' }
     return ordinal(parseInt(value)) + ' century'
   }
 }
