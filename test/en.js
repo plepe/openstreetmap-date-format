@@ -1,11 +1,12 @@
 /* global describe, it */
+const locale = 'en'
 const assert = require('assert')
 
 const format = require('../src/format')
-describe('Locale "en"', () => {
+describe(`Locale "${locale}"`, () => {
   it('locale', () => {
-    format.locale('en')
-    assert.strictEqual(format.locale(), 'en')
+    format.locale(locale)
+    assert.strictEqual(format.locale(), locale)
   })
 
   it('day', () => {
