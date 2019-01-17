@@ -4,6 +4,7 @@ Clone
 git clone https://github.com/plepe/openstreetmap-date-format
 cd openstreetmap-date-format
 npm install
+npm install --only=dev # only needed, if your npm is in production mode
 cp templates/en.js templates/xy.js
 cp locale/template.js locale/xy.js
 cp test/en.js test/xy.js
