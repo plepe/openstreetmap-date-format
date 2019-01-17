@@ -17,6 +17,7 @@ console.log(osmDateFormat('2018-10..2018-12-24'))
 Available locales:
 * English (en)
 * Deutsch / German (de)
+* Français / French (fr) (thanks to james2432)
 
 ## Installation
 ```sh
