@@ -10,7 +10,6 @@ function format (date, options = {}) {
   const templates = locale.osmDateFormatTemplates
 
   let dates
-  let modi
   let template = templates.single
 
   let m = date.match(/(.*)\.\.(.*)$/)

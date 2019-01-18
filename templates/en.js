@@ -7,47 +7,47 @@ function formatDate (options, date) {
   switch (date.type) {
     case 'day':
       if (options.format === 'short') {
-        result =  moment(date.value).format('ll')
+        result = moment(date.value).format('ll')
       } else {
-        result =  moment(date.value).format('LL')
+        result = moment(date.value).format('LL')
       }
       break
     case 'month':
       if (options.format === 'short') {
-        result =  moment(date.value).format('MMM YYYY')
+        result = moment(date.value).format('MMM YYYY')
       } else {
-        result =  moment(date.value).format('MMMM YYYY')
+        result = moment(date.value).format('MMMM YYYY')
       }
       break
     case 'year':
-      result =  date.value
+      result = date.value
       break
     case 'decade':
-      result =  'the ' + date.value + 's'
+      result = 'the ' + date.value + 's'
       break
     case 'century':
       if (options.format === 'short') {
-        result =  date.value + 'c.'
+        result = date.value + 'c.'
       } else {
-        result =  ordinal(parseInt(date.value)) + ' century'
+        result = ordinal(parseInt(date.value)) + ' century'
       }
   }
 
   switch (date.prefix) {
     case 'before':
-      result =  'before ' + result
+      result = 'before ' + result
       break
     case 'after':
-      result =  'after ' + result
+      result = 'after ' + result
       break
     case 'early':
-      result =  'early ' + result
+      result = 'early ' + result
       break
     case 'mid':
-      result =  'mid ' + result
+      result = 'mid ' + result
       break
     case 'late':
-      result =  'late ' + result
+      result = 'late ' + result
       break
   }
 

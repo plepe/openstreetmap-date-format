@@ -6,51 +6,51 @@ function formatDate (options, date) {
   switch (date.type) {
     case 'day':
       if (options.format === 'short') {
-        result =  moment(date.value).format('ll')
+        result = moment(date.value).format('ll')
       } else {
-        result =  moment(date.value).format('LL')
+        result = moment(date.value).format('LL')
       }
       break
     case 'month':
       if (options.format === 'short') {
-        result =  moment(date.value).format('MMM YYYY')
+        result = moment(date.value).format('MMM YYYY')
       } else {
-        result =  moment(date.value).format('MMMM YYYY')
+        result = moment(date.value).format('MMMM YYYY')
       }
       break
     case 'year':
-      result =  date.value
+      result = date.value
       break
     case 'decade':
       if (options.format === 'short') {
-        result =  date.value + 'er'
+        result = date.value + 'er'
       } else {
-        result =  date.value + 'er Jahre'
+        result = date.value + 'er Jahre'
       }
       break
     case 'century':
       if (options.format === 'short') {
-        result =  date.value + '. Jh.'
+        result = date.value + '. Jh.'
       } else {
-        result =  date.value + '. Jahrhundert'
+        result = date.value + '. Jahrhundert'
       }
   }
 
   switch (date.prefix) {
     case 'before':
-      result =  'vor ' + result
+      result = 'vor ' + result
       break
     case 'after':
-      result =  'nach ' + result
+      result = 'nach ' + result
       break
     case 'early':
-      result =  'Anfang ' + result
+      result = 'Anfang ' + result
       break
     case 'mid':
-      result =  'Mitte ' + result
+      result = 'Mitte ' + result
       break
     case 'late':
-      result =  'Ende ' + result
+      result = 'Ende ' + result
       break
   }
 

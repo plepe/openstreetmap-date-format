@@ -6,20 +6,20 @@ function formatDate (options, date, article) {
   switch (date.type) {
     case 'day':
       if (options.format === 'short') {
-        result =  moment(date.value).format('ll')
+        result = moment(date.value).format('ll')
       } else {
-        result =  moment(date.value).format('LL')
+        result = moment(date.value).format('LL')
       }
       break
     case 'month':
       if (options.format === 'short') {
-        result =  moment(date.value).format('MMM YYYY')
+        result = moment(date.value).format('MMM YYYY')
       } else {
-        result =  moment(date.value).format('MMMM YYYY')
+        result = moment(date.value).format('MMMM YYYY')
       }
       break
     case 'year':
-      result =  date.value
+      result = date.value
       break
     case 'decade':
       result = 'les années ' + date.value
@@ -41,23 +41,23 @@ function formatDate (options, date, article) {
 
   switch (date.prefix) {
     case 'before':
-      result =  'avant ' + result
+      result = 'avant ' + result
       break
     case 'after':
-      result =  'après ' + result
+      result = 'après ' + result
       break
     case 'early':
-      result =  'début ' + result
+      result = 'début ' + result
       break
     case 'mid':
       if (date.type === 'century') {
         result = 'milieu du ' + result
       } else {
-        result =  'milieu ' + result
+        result = 'milieu ' + result
       }
       break
     case 'late':
-      result =  'fin ' + result
+      result = 'fin ' + result
       break
   }
 
