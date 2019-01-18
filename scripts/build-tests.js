@@ -8,6 +8,16 @@ locales = locales
 
 fs.writeFileSync('dist/locales.json', JSON.stringify(locales, null, '    '))
 
+if (fs.existsSync('dist/test.js')) {
+  fs.unlinkSync('dist/test.js')
+}
+
+let b = browserify([ 'src/test.js' ], {
+  debug: true
+})
+let stream = b.bundle()
+stream.on('data', value => fs.appendFileSync('dist/test.js', value))
+
 locales.forEach(locale => {
   if (fs.existsSync('dist/test-' + locale + '.js')) {
     fs.unlinkSync('dist/test-' + locale + '.js')
@@ -16,7 +26,7 @@ locales.forEach(locale => {
   let b = browserify([ 'test/' + locale + '.js' ], {
     debug: true
   })
-  b.exclude("src/node.js")
+  b.external("src/node.js")
   let stream = b.bundle()
   stream.on('data', value => fs.appendFileSync('dist/test-' + locale + '.js', value))
 })
@@ -28,6 +38,7 @@ locales.forEach(locale => {
 
   let b = browserify([ 'locale/' + locale + '.js' ], {
     debug: true,
+    expose: [ 'src/node.js' ]
   })
   let stream = b.bundle()
   stream.on('data', value => fs.appendFileSync('dist/locale-' + locale + '.js', value))

@@ -3,30 +3,10 @@
   <meta charset="utf-8">
   <title>Mocha Tests</title>
   <link href="node_modules/mocha/mocha.css" rel="stylesheet" />
-  <script>
-function reload () {
-  let localeId = document.getElementById('localeId')
-  location.assign('test.html?' + localeId.value)
-}
-
-window.onload = function () {
-  let localeId = document.getElementById('localeId')
-  if (location.search) {
-    localeId.value = location.search.substr(1)
-  }
-
-  mocha.checkLeaks();
-  mocha.globals([]);
-  mocha.run();
-}
-  </script>
+  <script src="dist/test.js"></script>
 </head>
 <body>
-  <select id="localeId" onchange="reload()">
-    <option>en</option>
-    <option>de</option>
-    <option>fr</option>
-    <option>default</option>
+  <select id="localeId">
   </select>
   <div id="mocha"></div>
 
@@ -34,18 +14,5 @@ window.onload = function () {
 
   <script>mocha.setup('bdd')</script>
 
-<script>
-let loc = location.search ? location.search.substr(1) : 'en'
-
-let script = document.createElement('script')
-script.type = 'text/javascript'
-script.src = "dist/locale-" + loc +".js"
-document.body.appendChild(script)
-
-script = document.createElement('script')
-script.type = 'text/javascript'
-script.src = "dist/test-" + loc + ".js"
-document.body.appendChild(script)
-</script>
 </body>
 </html>
