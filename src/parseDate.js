@@ -12,8 +12,14 @@ module.exports = function parseDate (date, options, locale) {
     date = mBc[1]
   }
 
+  let m = date.match(/(before|early|late|mid|after) (.*)$/)
+  if (m) {
+    result.prefix = m[1]
+    date = m[2]
+  }
+
   result.value = date
-  let m = date.match(/^([0-9]{4})(-[0-9]{2})?(-[0-9]{2})?$/)
+  m = date.match(/^([0-9]{4})(-[0-9]{2})?(-[0-9]{2})?$/)
   if (m) {
     if (m[3]) {
       result.type = 'day'

@@ -1,5 +1,4 @@
 const parseDate = require('./parseDate')
-const formatDate = require('./formatDate')
 
 let locale = {}
 
@@ -13,33 +12,21 @@ function format (date, options = {}) {
   let dates
   let modi
   let template = templates.single
-  let m = date.match(/(before|early|late|mid|after) (.*)$/)
-  if (m) {
-    modi = m[1]
-    dates = [ parseDate(m[2]) ]
-  }
 
-  m = date.match(/(.*)\.\.(.*)$/)
+  let m = date.match(/(.*)\.\.(.*)$/)
   if (m) {
-    modi = 'range'
     dates = [ parseDate(m[1]), parseDate(m[2]) ]
 
     if (dates[1].bc) {
       dates[0].bc = true
     }
-  }
 
-  if (!dates) {
+    template = templates.range
+  } else {
     dates = [ parseDate(date) ]
   }
 
-  let formattedDates = dates.map(d => formatDate(d, options, locale))
-
-  if (modi) {
-    template = templates[modi]
-  }
-
-  return template.apply(locale, [ options ].concat(formattedDates))
+  return template.apply(locale, [ options ].concat(dates))
 }
 
 format.locale = function (_locale) {

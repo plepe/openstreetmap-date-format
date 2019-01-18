@@ -1,74 +1,86 @@
 const moment = require('moment')
 
+function formatDate (options, date, article) {
+  let result = date.value
+
+  switch (date.type) {
+    case 'day':
+      if (options.format === 'short') {
+        result =  moment(date.value).format('ll')
+      } else {
+        result =  moment(date.value).format('LL')
+      }
+      break
+    case 'month':
+      if (options.format === 'short') {
+        result =  moment(date.value).format('MMM YYYY')
+      } else {
+        result =  moment(date.value).format('MMMM YYYY')
+      }
+      break
+    case 'year':
+      result =  date.value
+      break
+    case 'decade':
+      result = 'les années ' + date.value
+      break
+    case 'century':
+      if (parseInt(date.value) === 1) {
+        result = date.value += 'er'
+      } else {
+        result = date.value += 'e'
+      }
+
+      if (options.format === 'short') {
+        result += ' s.'
+      } else {
+        result += ' siècle'
+      }
+      break
+  }
+
+  switch (date.prefix) {
+    case 'before':
+      result =  'avant ' + result
+      break
+    case 'after':
+      result =  'après ' + result
+      break
+    case 'early':
+      result =  'début ' + result
+      break
+    case 'mid':
+      if (date.type === 'century') {
+        result = 'milieu du ' + result
+      } else {
+        result =  'milieu ' + result
+      }
+      break
+    case 'late':
+      result =  'fin ' + result
+      break
+  }
+
+  if (date.circa) {
+    result = 'v. ' + result
+  }
+
+  if (date.bc) {
+    result += ' av. J.-C.'
+  }
+
+  if (article && (date.type === 'century' || date.type === 'day')) {
+    result = 'le ' + result
+  }
+
+  return result
+}
+
 module.exports = {
-  modify: function (options, value, modifier) {
-    if (modifier.circa) {
-      value = 'v. ' + value
-    }
-
-    if (modifier.bc) {
-      value += ' av. J.-C.'
-    }
-
-    return value
-  },
   single: function (options, value) {
-    return value
-  },
-  before: function (options, value) {
-    return 'avant ' + value
-  },
-  after: function (options, value) {
-    return 'après ' + value
-  },
-  early: function (options, value) {
-    return 'début ' + value
-  },
-  mid: function (options, value) {
-    if (value.endsWith('siècle') || value.endsWith(' s.')) {
-      return 'milieu du ' + value
-    }
-    return 'milieu ' + value
-  },
-  late: function (options, value) {
-    return 'fin ' + value
+    return formatDate(options, value, false)
   },
   range: function (options, value1, value2) {
-    // there is no short version in French to my knowledge
-    // il n'y a pas, à ma connaissance une façon courte d'écrire <<entre>>
-    // if (options.format === 'short') { return 'b/w ' + value1 + ' and ' + value2 }
-    if (value1.endsWith('siècle') || value1.endsWith(' s.') || value1.match(/^\d{1,2}\s(jan|fév|mar|avr|mai|ju|ao|sep|oct|nov|déc)/)) {
-      value1 = 'entre le ' + value1
-    } else {
-      value1 = 'entre ' + value1
-    }
-    if (value2.endsWith('siècle') || value2.endsWith(' s.') || value2.match(/^\d{1,2}\s(jan|fév|mar|avr|mai|ju|ao|sep|oct|nov|déc)/)) {
-      value2 = 'le ' + value2
-    }
-
-    return value1 + ' et ' + value2
-  },
-  formatDay: function (options, value) {
-    if (options.format === 'short') { return moment(value).format('ll') }
-    return moment(value).format('LL')
-  },
-  formatMonth: function (options, value) {
-    if (options.format === 'short') { return moment(value).format('MMM YYYY') }
-    return moment(value).format('MMMM YYYY')
-  },
-  formatYear: function (options, value) {
-    return value
-  },
-  formatDecade: function (options, value) {
-    return 'les années ' + value
-  },
-  formatCentury: function (options, value) {
-    if (parseInt(value) === 1) {
-      value += 'er'
-    } else {
-      value += 'e'
-    }
-    if (options.format === 'short') { return value + ' s.' }
-    return value + ' siècle'
+    return 'entre ' + formatDate(options, value1, true) + ' et ' + formatDate(options, value2, true)
   }
 }
