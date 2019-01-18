@@ -30,7 +30,7 @@ function format (date, options = {}) {
 
 format.locale = function (_locale) {
   if (_locale) {
-    require('../locale/node.js')(_locale, locale)
+    require('./src/node.js')(_locale, locale)
   } else {
     if (typeof locale.id === 'undefined') {
       if ('locale' in global) {
