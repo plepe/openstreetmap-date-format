@@ -1,3 +1,4 @@
+const moment = require('moment')
 
 module.exports = {
   modify: function (options, value, modifier) {
@@ -48,12 +49,12 @@ module.exports = {
     return value1 + ' et ' + value2
   },
   formatDay: function (options, value) {
-    if (options.format === 'short') { return this.moment(value).format('ll') }
-    return this.moment(value).format('LL')
+    if (options.format === 'short') { return moment(value).format('ll') }
+    return moment(value).format('LL')
   },
   formatMonth: function (options, value) {
-    if (options.format === 'short') { return this.moment(value).format('MMM YYYY') }
-    return this.moment(value).format('MMMM YYYY')
+    if (options.format === 'short') { return moment(value).format('MMM YYYY') }
+    return moment(value).format('MMMM YYYY')
   },
   formatYear: function (options, value) {
     return value

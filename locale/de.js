@@ -1,6 +1,5 @@
 global.locale = {
   id: 'de',
-  moment: require('moment'),
   osmDateFormatTemplates: require('../templates/de')
 }
 
