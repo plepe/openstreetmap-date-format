@@ -4,7 +4,7 @@ const locales = require('../dist/locales.json')
 
 function reload () {
   let localeSelector = document.getElementById('localeId')
-  location.assign('test.html?' + localeSelector.value)
+  location.assign('?' + localeSelector.value)
 }
 
 window.onload = function () {
