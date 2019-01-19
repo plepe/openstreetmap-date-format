@@ -1,6 +1,6 @@
 {
   "name": "openstreetmap-date-format",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Format openstreetmap dates (like start_date) in a localized string",
   "main": "src/index.js",
   "repository": "https://github.com/plepe/openstreetmap-date-format",
