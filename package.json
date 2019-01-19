@@ -25,6 +25,6 @@
     "test": "mocha --bail"
   },
   "browser": {
-    "./locale/node.js": "./locale/browserify.js"
+    "./src/node.js": "./src/browserify.js"
   }
 }
