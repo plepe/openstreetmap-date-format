@@ -21,6 +21,8 @@ window.onload = function () {
 
   if (location.search) {
     localeSelector.value = location.search.substr(1)
+  } else {
+    localeSelector.value = 'en'
   }
 
   async.parallel([
