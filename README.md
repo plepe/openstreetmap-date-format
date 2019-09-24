@@ -117,5 +117,6 @@ console.log(osmDateFormat('2010-10', { format: 'short' }))
 ### Documentation
 * https://wiki.openstreetmap.org/wiki/Key:start_date
 
-### See also
-* https://github.com/plepe/openstreetmap-date-parser (will return a possible date range from a date string)
+## Related modules
+* [openstreetmap-date-parser](https://github.com/plepe/openstreetmap-date-parser): parse a date string and return a minimum and maximum date.
+* [openstreetmap-date-query](https://github.com/plepe/openstreetmap-date-query): builds a regexp from a date query, e.g. for usage with Overpass API.
