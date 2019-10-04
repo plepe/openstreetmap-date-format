@@ -19,6 +19,8 @@ Available locales:
 * Deutsch / German (de)
 * Français / French (fr) (thanks to james2432)
 
+If you want to contribute another language, please check [the howto](./HOWTO_CONTRIBUTE.md).
+
 ## Installation
 ```sh
 npm install --save openstreetmap-date-format
