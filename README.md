@@ -59,6 +59,15 @@ console.log(osmDateFormat.locale())
 // 'de'
 ```
 
+### osmDateFormat.locales()
+Return available locales as array.
+
+Example:
+```js
+console.log(osmDateFormat.locales())
+// [ 'en', 'de', 'fr' ]
+```
+
 ## Localization
 ### Using nodejs
 ```js

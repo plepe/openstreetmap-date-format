@@ -51,4 +51,8 @@ format.locale = function (_locale) {
   }
 }
 
+format.locales = function () {
+  return require('../locale/list.json')
+}
+
 module.exports = format
