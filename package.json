@@ -26,5 +26,8 @@
   },
   "browser": {
     "./src/node.js": "./src/browserify.js"
+  },
+  "bin": {
+    "openstreetmap-date-format": "./cli.js"
   }
 }
