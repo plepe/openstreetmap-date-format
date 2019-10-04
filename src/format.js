@@ -12,9 +12,9 @@ function format (date, options = {}) {
   let dates
   let template = templates.single
 
-  let m = date.match(/(.*)\.\.(.*)$/)
+  const m = date.match(/(.*)\.\.(.*)$/)
   if (m) {
-    dates = [ parseDate(m[1]), parseDate(m[2]) ]
+    dates = [parseDate(m[1]), parseDate(m[2])]
 
     if (dates[1].bc) {
       dates[0].bc = true
@@ -22,10 +22,10 @@ function format (date, options = {}) {
 
     template = templates.range
   } else {
-    dates = [ parseDate(date) ]
+    dates = [parseDate(date)]
   }
 
-  return template.apply(locale, [ options ].concat(dates))
+  return template.apply(locale, [options].concat(dates))
 }
 
 format.locale = function (_locale) {

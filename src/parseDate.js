@@ -1,12 +1,12 @@
 module.exports = function parseDate (date, options, locale) {
-  let result = {}
+  const result = {}
 
   if (date.match(/^~/)) {
     result.circa = true
     date = date.substr(1)
   }
 
-  let mBc = date.match(/^([^ ]*)\s*BCE?$/)
+  const mBc = date.match(/^([^ ]*)\s*BCE?$/)
   if (mBc) {
     result.bc = true
     date = mBc[1]

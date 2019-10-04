@@ -5,17 +5,17 @@ const async = require('async')
 const locales = require('../dist/locales.json')
 
 function reload () {
-  let localeSelector = document.getElementById('localeId')
+  const localeSelector = document.getElementById('localeId')
   location.assign('?' + localeSelector.value)
 }
 
 window.onload = function () {
-  let localeSelector = document.getElementById('localeId')
+  const localeSelector = document.getElementById('localeId')
 
   localeSelector.onchange = reload
 
   locales.forEach(locale => {
-    let option = document.createElement('option')
+    const option = document.createElement('option')
     option.value = locale
     option.appendChild(document.createTextNode(locale))
     localeSelector.appendChild(option)
@@ -29,14 +29,14 @@ window.onload = function () {
 
   async.parallel([
     function (done) {
-      let script = document.createElement('script')
+      const script = document.createElement('script')
       script.type = 'text/javascript'
       script.src = 'dist/locale-' + loc + '.js'
       document.body.appendChild(script)
       script.onload = () => done()
     },
     function (done) {
-      let script = document.createElement('script')
+      const script = document.createElement('script')
       script.type = 'text/javascript'
       script.src = 'dist/test-' + loc + '.js'
       document.body.appendChild(script)
@@ -53,4 +53,4 @@ window.onload = function () {
   })
 }
 
-let loc = location.search ? location.search.substr(1) : 'en'
+const loc = location.search ? location.search.substr(1) : 'en'
