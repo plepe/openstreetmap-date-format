@@ -33,15 +33,20 @@ window.onload = function () {
       script.type = 'text/javascript'
       script.src = 'dist/locale-' + loc + '.js'
       document.body.appendChild(script)
-      script.onload = done
+      script.onload = () => done()
     },
     function (done) {
       let script = document.createElement('script')
       script.type = 'text/javascript'
       script.src = 'dist/test-' + loc + '.js'
       document.body.appendChild(script)
+      script.onload = () => done()
     }
   ], (err) => {
+    if (err) {
+      return console.error(err)
+    }
+
     mocha.checkLeaks()
     mocha.globals([])
     mocha.run()
