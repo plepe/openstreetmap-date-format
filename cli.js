@@ -17,6 +17,12 @@ parser.addArgument('--lang', {
   help: 'Language to use (if not set, automatically detected from $LANG). Available languages: ' + locales.join(', ')
 })
 
+parser.addArgument('--format', {
+  help: 'Format to use (default: short)',
+  default: 'long',
+  choices: [ 'long', 'short' ]
+})
+
 const args = parser.parseArgs()
 
 let lang
@@ -38,5 +44,5 @@ if (args.lang) {
 osmDateFormat.locale(lang)
 
 rl.on('line', input => {
-  console.log(osmDateFormat(input))
+  console.log(osmDateFormat(input, args))
 })
