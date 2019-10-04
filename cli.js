@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const osmDateFormat = require('.')
+const locales = require('./locale/list.json')
 
 const readline = require('readline')
 const rl = readline.createInterface({
@@ -12,11 +13,26 @@ const parser = new ArgumentParser({
   description: 'Read openstreetmap date values (like start_date) from stdin and print a localized string to stdout.'
 })
 
+parser.addArgument('--lang', {
+  help: 'Language to use (if not set, automatically detected from $LANG). Available languages: ' + locales.join(', ')
+})
+
 const args = parser.parseArgs()
 
-const locales = require('./locale/list.json')
-if (!locales.includes(lang)) {
-  lang = locales[0]
+let lang
+if (args.lang) {
+  if (!locales.includes(args.lang)) {
+    console.error(`Language ${args.lang} not available`)
+    process.exit(1)
+  }
+
+  lang = args.lang
+} else {
+  // detect locale
+  [ , lang ] = process.env.LANG.match(/^([a-z]+)[_\.]/)
+  if (!locales.includes(lang)) {
+    lang = locales[0]
+  }
 }
 
 osmDateFormat.locale(lang)
