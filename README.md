@@ -110,6 +110,22 @@ console.log(osmDateFormat('2010-10', { format: 'short' }))
 // 'Oct 2010'
 ```
 
+## Command line usage
+If installed globally (`--global`), a command line utility `openstreetmap-date-format` will be installed, which reads values from stdin and prints the formatted result to stdout.
+
+For further options, use `openstreetmap-date-format --help`.
+
+Example:
+```sh
+> echo C17 | openstreetmap-date-format
+17th century
+> echo C17 | openstreetmap-date-format --format short
+17c.
+> export LANG=de_DE.UTF-8
+> echo C17 | openstreetmap-date-format
+17. Jahrhundert
+```
+
 ## Further links
 ### Code
 * Source code: https://github.com/plepe/openstreetmap-date-format
