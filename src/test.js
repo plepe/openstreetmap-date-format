@@ -1,3 +1,5 @@
+/* global location:false, mocha:false */
+
 const async = require('async')
 
 const locales = require('../dist/locales.json')
@@ -29,20 +31,20 @@ window.onload = function () {
     function (done) {
       let script = document.createElement('script')
       script.type = 'text/javascript'
-      script.src = "dist/locale-" + loc +".js"
+      script.src = 'dist/locale-' + loc + '.js'
       document.body.appendChild(script)
       script.onload = done
     },
     function (done) {
       let script = document.createElement('script')
       script.type = 'text/javascript'
-      script.src = "dist/test-" + loc + ".js"
+      script.src = 'dist/test-' + loc + '.js'
       document.body.appendChild(script)
-    },
+    }
   ], (err) => {
-    mocha.checkLeaks();
-    mocha.globals([]);
-    mocha.run();
+    mocha.checkLeaks()
+    mocha.globals([])
+    mocha.run()
   })
 }
 
