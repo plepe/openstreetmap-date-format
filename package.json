@@ -8,13 +8,13 @@
   "license": "MIT",
   "dependencies": {
     "argparse": "^1.0.10",
-    "moment": "^2.23.0",
-    "ordinal": "^1.0.2"
+    "moment": "^2.26.0",
+    "ordinal": "^1.0.3"
   },
   "devDependencies": {
-    "async": "^2.6.1",
-    "browserify": "^16.2.3",
-    "http-server": "^0.11.1",
+    "async": "^2.6.3",
+    "browserify": "^16.5.1",
+    "http-server": "^0.12.3",
     "mocha": "^5.2.0",
     "standard": "^14.3.1"
   },
