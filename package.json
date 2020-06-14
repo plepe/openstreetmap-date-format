@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "repository": "https://github.com/plepe/openstreetmap-date-format",
   "author": "Stephan Bösch-Plepelits <skunk@xover.mud.at>",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "dependencies": {
     "argparse": "^1.0.10",
     "moment": "^2.23.0",
