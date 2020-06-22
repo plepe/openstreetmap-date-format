@@ -60,6 +60,18 @@ describe(`Locale "${locale}"`, () => {
     assert.strictEqual(format('1901-02..2018-12-24', { format: 'short' }), 'b/w Feb 1901 and Dec 24, 2018')
   })
 
+  it('range from', () => {
+    assert.strictEqual(format('1901-02..'), 'from February 1901')
+    assert.strictEqual(format('2018-12-24..'), 'from December 24, 2018')
+    assert.strictEqual(format('2018-12-24..', { format: 'short' }), 'from Dec 24, 2018')
+  })
+
+  it('range to', () => {
+    assert.strictEqual(format('..1901-02'), 'to February 1901')
+    assert.strictEqual(format('..2018-12-24'), 'to December 24, 2018')
+    assert.strictEqual(format('..2018-12-24', { format: 'short' }), 'to Dec 24, 2018')
+  })
+
   it('early/mid/late', () => {
     assert.strictEqual(format('early 1901-02'), 'early February 1901')
     assert.strictEqual(format('mid C17'), 'mid 17th century')
