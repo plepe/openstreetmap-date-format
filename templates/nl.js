@@ -26,11 +26,7 @@ function formatDate (options, date) {
       result = 'de jaren ' + date.value
       break
     case 'century':
-      if (parseInt(date.value) === 1) {
-        result = date.value += 'e eeuw'
-      } else {
-        result = date.value += 'ste eeuw'
-      }
+      result = date.value += 'e eeuw'
   }
 
   switch (date.prefix) {
