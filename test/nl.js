@@ -1,5 +1,5 @@
 /* global describe, it */
-const locale = 'en'
+const locale = 'nl'
 const assert = require('assert')
 
 const format = require('../src/format')
