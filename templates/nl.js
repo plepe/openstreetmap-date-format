@@ -55,6 +55,10 @@ function formatDate (options, date) {
     result += ' v. Chr.'
   }
 
+  if (article && (date.type === 'century')) {
+    result = 'le ' + result
+  }
+
   return result
 }
 module.exports = {
