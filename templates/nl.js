@@ -1,7 +1,7 @@
 const moment = require('moment')
 const ordinal = require('ordinal')
 
-function formatDate (options, date) {
+function formatDate (options, date, article) {
   let result = date.value
 
   switch (date.type) {
