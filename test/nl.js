@@ -10,7 +10,7 @@ describe(`Locale "${locale}"`, () => {
   })
 
   it('day', () => {
-    assert.strictEqual(format('1901-02-03'), '3 februari, 1901')
+    assert.strictEqual(format('1901-02-03'), '3 februari 1901')
     assert.strictEqual(format('1901-02-03', { format: 'short' }), '3 feb 1901')
   })
 
