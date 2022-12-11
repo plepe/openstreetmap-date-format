@@ -56,7 +56,7 @@ function formatDate (options, date, article) {
   }
 
   if (article && (date.type === 'century')) {
-    result = 'le ' + result
+    result = 'de ' + result
   }
 
   return result
