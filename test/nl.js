@@ -11,12 +11,12 @@ describe(`Locale "${locale}"`, () => {
 
   it('day', () => {
     assert.strictEqual(format('1901-02-03'), '3 februari 1901')
-    assert.strictEqual(format('1901-02-03', { format: 'short' }), '3 feb 1901')
+    assert.strictEqual(format('1901-02-03', { format: 'short' }), '3 feb. 1901')
   })
 
   it('month', () => {
-    assert.strictEqual(format('1901-02'), 'Februari 1901')
-    assert.strictEqual(format('1901-02', { format: 'short' }), 'Feb 1901')
+    assert.strictEqual(format('1901-02'), 'februari 1901')
+    assert.strictEqual(format('1901-02', { format: 'short' }), 'feb. 1901')
   })
 
   it('year', () => {
@@ -40,12 +40,12 @@ describe(`Locale "${locale}"`, () => {
   it('circa', () => {
     assert.strictEqual(format('~c15'), 'ca. 15e eeuw')
     assert.strictEqual(format('~2010-10'), 'ca. oktober 2010')
-    assert.strictEqual(format('~2010-10', { format: 'short' }), 'ca. okt 2010')
+    assert.strictEqual(format('~2010-10', { format: 'short' }), 'ca. okt. 2010')
   })
 
   it('pure', () => {
     assert.strictEqual(format('1901-02-03'), '3 februari 1901')
-    assert.strictEqual(format('1901-02'), 'Februari 1901')
+    assert.strictEqual(format('1901-02'), 'februari 1901')
   })
 
   it('before', () => {
